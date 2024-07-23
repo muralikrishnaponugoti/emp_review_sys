@@ -1,0 +1,22 @@
+<% if(!locals.toReviewList){%>
+    <h2 style="text-align: center;width:60%; margin:auto;"> All assigned works are done theere have no assigned works to show you</h2>
+<% } else {%>
+    <div id="employesToReview" style="display: flex;justify-content: space-around; flex-wrap: wrap; margin-top: 2em;">
+        <% toReviewList.forEach((emp)=>{ %>
+                <div class="card" style="width:auto;max-width:30%;">
+                    <div class="card-body">
+                    <h5 class="card-title">name: <%= emp.name %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">email: <%= emp.email %></h6>
+                    <p class="card-text">Role: <%= emp.role %></p>
+                    <form action="/employe/<%=employeId%>/assignedWork?revieweeId=<%= emp.id %>" method="post">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Give Feedback</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">add Review</button>
+                    </form>
+                    </div>
+                </div>
+        <% }) %>
+    </div>
+<% } %>

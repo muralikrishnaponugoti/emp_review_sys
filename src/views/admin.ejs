@@ -1,0 +1,36 @@
+<% if(!locals.employes){%>
+    <h1 class="empty-employes" style="text-align: center;width:60%; margin:auto;"> As of now There have no employees in the company: add employees</h1>
+<% }else{ %>
+    <% if(locals.employes.length>0){%>
+        <div id="allEmployes" style="display: flex;justify-content: space-around; flex-wrap: wrap; margin-top: 2em;">
+            <% employes.forEach((employe)=>{%>
+                <% if(employe.role!=1){%>
+                    <div class="card" style="width:auto;max-width:30%;">
+                        <img src="" class="card-img-top" alt="emplogo">
+                        <div class="card-body">
+                        <h4 class="card-title">Name: <%=employe.name %></h3>
+                        <h5 class="card-text">email: <%=employe.email %></h4>
+                        <h6 class="card-text">Role:Employe</h4>
+                        <a href="/admin/<%=employeId %>/update?empId=<%=employe._id%>" class="btn btn-primary" style="width:46%;">update</a>
+                        <a href="/admin/<%=employeId %>/delete?empId=<%=employe._id%>" class="btn btn-danger" style="width:46%;">delete</a>
+                        <div class="dropdown" style="margin-left: 10%;">
+                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:80%;">
+                            Give feedback To
+                            </button>
+                            <ul class="dropdown-menu">
+                                <% employes.forEach((emp)=>{%>
+                                    <% if(emp._id!=employe._id){%>
+                                        <li><a class="dropdown-item" href="/admin/<%= employeId %>/assignReview?reviewerId=<%=employe._id %>&revieweeId=<%= emp._id %>"><%=emp.name%>(<% emp.role==1?'Admin':'Employe' %>)</a></li>
+                                    <% } %>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                <% } %>
+            <%})%>
+        </div>
+    <% } else {%>
+        <h1 class="empty-employes"> There have not employees in the company add employees</h1>
+    <%}%>
+<% } %>

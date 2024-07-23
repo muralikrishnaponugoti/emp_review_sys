@@ -1,0 +1,19 @@
+<% if(locals.feedbacks.length>0){%>
+    <div id="employesToReview" style="display: flex;justify-content: space-around; flex-wrap: wrap; margin-top: 2em;">
+        <% feedbacks.forEach((feedBack)=>{ %>
+            <div class="card" style="width:auto;max-width:30%;">
+                <div class="card-body">
+                    <h5 class="card-title">name: <%= feedBack.name %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">email: <%= feedBack.email %></h6>
+                    <p class="card-text">Role: <%= feedBack.role %></p>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text" placeholder="<%=feedBack.text%>" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+<% }else {%>
+    <h2 style="text-align: center;width:60%; margin:auto;">As of now any employe not given feedback on you</h2>
+<% } %>

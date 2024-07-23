@@ -1,0 +1,19 @@
+body{
+    background-color: red;
+}
+.form-width{
+    width:50%;
+    height:auto;
+    margin:auto;
+}
+.content-title{
+    text-align: center;
+}
+.form-width button{
+    text-align: center;
+    width:20%;
+    margin-left:35%;
+}
+.empty-employes{
+    text-align: center;
+}

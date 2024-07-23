@@ -1,0 +1,27 @@
+<h1 class="mt-5 mb-4 content-title">update</h1>
+<%if(errorMessage){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= errorMessage %>
+    </div>
+<% } %>
+<form action="/admin/<%=employeId%>/update?empId=<%=employe._id%> " method="post" class="form-width">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="enter name" value="<%=employe.name%>" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="enter email"  value="<%=employe.email%>" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="enter password at least 6"  value="">
+    </div>
+    <div class="mb-3">
+        <select class="form-select" id="role" name="role" aria-label="Default select example" required>
+            <option value=1>Admin</option>
+            <option value=2 selected>employee</option>
+          </select>
+    </div>
+    <button type="submit" class="btn btn-primary">update</button>
+</form>
