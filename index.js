@@ -15,7 +15,7 @@ server.use(session({
   saveUninitialized: true,
   cookie: { secure: false },
 }));
-server.use(express.static(path.join(path.resolve(),'public')));
+server.use(express.static(path.join(path.resolve(),'/public')));
 server.use(router);
 // server.use(express.static('public'));
 //handling requests with mismatch url
